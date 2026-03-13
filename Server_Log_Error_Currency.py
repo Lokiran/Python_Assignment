@@ -1,0 +1,19 @@
+def count_log_levels(logs):
+    # Dictionary to hold the counts
+    counts = {'INFO': 0, 'WARN': 0, 'ERROR': 0}
+
+    # Loop through each log line
+    for line in logs:
+        level = line.split(':')[0]  # extract the level (INFO/WARN/ERROR)
+
+        # Increase the count if the level exists in dictionary
+        if level in counts:
+            counts[level] += 1
+
+    return counts
+
+
+# Example
+logs = ["ERROR: disk full", "INFO: started", "ERROR: timeout", "WARN: low memory"]
+print(count_log_levels(logs))
+# Output: {'ERROR': 2, 'INFO': 1, 'WARN': 1}
